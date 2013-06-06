@@ -8,7 +8,13 @@ Jicama is a Turntable robot built using Alain Gilbert's [Turntable-API][ttapi].
 Installation & Usage
 ====================
 
+You'll need to use Git to clone the jicama repository to your computer.
+
 You will need to install the python packages listed in `requirements.txt` to run Jicama. I encourage you to use [pip][] and [virtualenv][] (and [virtualenvwrapper][]). If you're on a Mac this should get you started:
+
+[pip]: http://www.pip-installer.org/
+[virtualenv]: http://www.virtualenv.org/
+[virtualenvwrapper]: http://virtualenvwrapper.readthedocs.org/
 
 ```bash
 sudo easy_install pip # install pip
