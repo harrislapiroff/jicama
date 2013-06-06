@@ -13,10 +13,10 @@ ADDRESSING_PATTERNS = (
 	r'(.*),?\s+@?%s[\.!\?]?' % settings.TURNTABLE['name'].lower(),
 )
 
-# Jicama will join James Joystick on tt.fm
+# Initialize Turntable bot
 tt_bot = Bot(settings.TURNTABLE['auth'], settings.TURNTABLE['user'], settings.TURNTABLE['room'])
 
-# Connect to twitter account
+# Connect to Twitter account, if settings are in place
 if hasattr(settings, 'TWITTER'):
 	tw_bot = twitter.Api(**settings.TWITTER)
 
@@ -43,10 +43,9 @@ def newsong(data):
 	
 	"""
 	
+	# 1: Send a tweet of recent songs
 	if hasattr(settings, 'TWITTER'): # only tweet if the twitter settings exist
 		TWEET_FORMAT = "Recently played: %s http://tt.fm/james_joystick"
-
-		# 1: Send a tweet of recent songs
 		global RECENT_SONGS
 		song = data['room']['metadata']['current_song']
 		RECENT_SONGS.append(song)
