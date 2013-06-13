@@ -125,8 +125,9 @@ def add_dj(data):
 	ADJECTIVES = ("hot", "sweet", "rocking", "bumping")
 	NOUNS = ("tracks", "songs", "tunes", "beats")
 	new_dj = data['user']
-	tweet = "%s just stepped up to %s some %s %s in http://tt.fm/james_joystick." % (data['user'][0]['name'], choice(VERBS), choice(ADJECTIVES), choice(NOUNS))
-	tw_bot.PostUpdate(tweet)
+	if hasattr(settings, 'TWITTER'):
+		tweet = "%s just stepped up to %s some %s %s in http://tt.fm/james_joystick." % (data['user'][0]['name'], choice(VERBS), choice(ADJECTIVES), choice(NOUNS))
+		tw_bot.PostUpdate(tweet)
 	print "- TWEETED: %s" % tweet
 
 
